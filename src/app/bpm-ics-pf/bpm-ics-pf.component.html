@@ -1,0 +1,111 @@
+<!-- <head>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".show").click(function () {
+        $(".menu").slideToggle();
+      });
+    });
+  </script>
+</head> -->
+
+<form>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <strong>Informações Circular SUSEP Nº 445</strong>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-5">
+      </div>
+    </div>
+
+
+    <mat-accordion>
+      <mat-expansion-panel class="panel mt-4">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="titulo">
+            Administrador
+          </mat-panel-title>
+          <mat-panel-description id="registroAdm">
+            {{ registroAdm }}
+          </mat-panel-description>
+
+        </mat-expansion-panel-header>
+        <div *ngFor="let adm of administrador">
+          <mat-form-field class="form" id="bootstrap-overrides">
+            <mat-placeholder class="estiloplace">Nome</mat-placeholder>
+            <input type="text" matInput name="nome1" value="{{ adm.nome }}" readonly>
+          </mat-form-field>
+
+
+          <mat-form-field class="form" id="bootstrap-overrides">
+            <mat-placeholder class="estiloplace">CPF</mat-placeholder>
+            <input [textMask]="{mask: mask}" type="text" matInput name="cnpjCpf1" value="{{ adm.cpf }}" readonly>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+    <mat-accordion>
+      <mat-expansion-panel class="panel mt-4">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="titulo">
+            Controlador
+          </mat-panel-title>
+          <mat-panel-description id="registroCont">
+            {{ registroCont }}
+          </mat-panel-description>
+
+        </mat-expansion-panel-header>
+        <div *ngFor="let cont of controlador">
+          <mat-form-field class="form" id="bootstrap-overrides">
+            <mat-placeholder class="estiloplace">Nome</mat-placeholder>
+            <input type="text" matInput name="nome2" value="{{ cont.nome }}" readonly>
+
+          </mat-form-field>
+
+          <mat-form-field class="form" id="bootstrap-overrides">
+            <mat-placeholder class="estiloplace">CPF</mat-placeholder>
+            <input [textMask]="{mask: mask}" type="text" matInput name="cnpjCpf2" value="{{ cont.cpf }}" readonly>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+    <mat-accordion>
+      <mat-expansion-panel class="panel mt-4">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="titulo">
+            Procurador
+          </mat-panel-title>
+          <mat-panel-description id="registroProc">
+            {{ registroProc }}
+          </mat-panel-description>
+
+        </mat-expansion-panel-header>
+        <div *ngFor="let proc of procurador">
+          <mat-form-field class="form" id="bootstrap-overrides">
+            <mat-placeholder class="estiloplace">Nome</mat-placeholder>
+            <input type="text" matInput name="nome3" value="{{ proc.nome }}" readonly>
+          </mat-form-field>
+
+          <mat-form-field class="form" id="bootstrap-overrides">
+            <mat-placeholder class="estiloplace">CPF</mat-placeholder>
+            <input [textMask]="{mask: mask}" type="text" matInput name="cnpjCpf3" value="{{ proc.cpf }}" readonly>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+  </div>
+</form>

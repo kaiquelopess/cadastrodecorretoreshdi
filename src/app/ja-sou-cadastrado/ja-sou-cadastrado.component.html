@@ -1,0 +1,41 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="row mt-2">
+        <div class="offset-sm-3 offset-md-3 offset-lg-4 col-sm-6 col-md-6 col-lg-4 registro">
+            <div class="row">
+                <div class="col">
+                    <p class="formTitle">Já sou cadastrado</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group required">
+                        <label for="login" class="control-label">Login (CPF)</label>
+                        <input id="login" class="form-control" type="text" formControlName="cpf" mask="000.000.000-00">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group required">
+                        <label for="password" class="control-label">Senha</label>
+                        <input id="password" class="form-control" type="password" formControlName="password" minlength="8" maxlength="30" (keypress)="validarCaracter($event)">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <button type="submit" class="botaoHdi btn btn-success pull-right">Entrar
+                    </button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <u><a class="rotas" (click)="irEsqueciSenha()" role="button">Esqueci a senha</a></u>
+                </div>
+                <div class="col-md-12">
+                    <u><a class="rotas" (click)="irLoginPrimario()" role="button">Desejo me cadastrar</a></u>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

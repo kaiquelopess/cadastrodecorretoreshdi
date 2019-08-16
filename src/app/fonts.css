@@ -1,0 +1,76 @@
+/* @font-face {
+    font-family: 'HDICond-Black';
+    src: url('/assets/fonts/hdisanscond-black-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisanscond-black-web.woff') format('woff'), url('/assets/fonts/hdisanscond-black-web.ttf') format('truetype'), url('/assets/fonts/hdisanscond-black-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HDICond-Bold';
+    src: url('/assets/fonts/hdisanscond-bold-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisanscond-bold-web.woff') format('woff'), url('/assets/fonts/hdisanscond-bold-web.ttf') format('truetype'), url('/assets/fonts/hdisanscond-bold-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HDICond-Light';
+    src: url('/assets/fonts/hdisanscond-light-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisanscond-light-web.woff') format('woff'), url('/assets/fonts/hdisanscond-light-web.ttf') format('truetype'), url('/assets/fonts/hdisanscond-light-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HDICond-Regular';
+    src: url('/assets/fonts/hdisanscond-regular-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisanscond-regular-web.woff') format('woff'), url('/assets/fonts/hdisanscond-regular-web.ttf') format('truetype'), url('/assets/fonts/hdisanscond-regular-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HDI-Regular';
+    src: url('/assets/fonts/hdisans-regular-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisans-regular-web.woff') format('woff'), url('/assets/fonts/hdisans-regular-web.ttf') format('truetype'), url('/assets/fonts/hdisans-regular-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HDI-Italic';
+    src: url('/assets/fonts/hdisans-italic-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisans-italic-web.woff') format('woff'), url('/assets/fonts/hdisans-italic-web.ttf') format('truetype'), url('/assets/fonts/hdisans-italic-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HDI-Bold';
+    src: url('/assets/fonts/hdisans-bold-web.eot');
+    src: local('☺'), url('/assets/fonts/hdisans-bold-web.woff') format('woff'), url('/assets/fonts/hdisans-bold-web.ttf') format('truetype'), url('/assets/fonts/hdisans-bold-web.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'HDICond-Light' !important;
+    color: rgb(120,120,120);
+  }
+  
+  .HDICond-Black {font-family: 'HDICond-Black'; font-weight: normal;}
+  .HDICond-Bold {font-family: 'HDICond-Bold'; font-weight: normal;}
+  .HDICond-Light {font-family: 'HDICond-Light'; font-weight: normal;}
+  .HDICond-Regular {font-family: 'HDICond-Regular'; font-weight: normal;}
+  .HDI-Regular {font-family: 'HDI-Regular'; font-weight: normal;}
+  .HDI-Italic {font-family: 'HDI-Italic'; font-weight: normal;}
+  .HDI-Bold {font-family: 'HDI-Bold'; font-weight: normal;}
+  
+  
+  
+  
+  
+  
+  
+   */

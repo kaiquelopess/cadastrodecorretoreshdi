@@ -1,0 +1,12 @@
+{
+  "/api/*": {
+    "target": "https://api-desenv.hdi.com.br/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+  
+}

@@ -1,0 +1,61 @@
+<div class="container topContainer">
+    <!-- <div class="row">
+        <div class="col">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" (click)="onNavigate('/app-meus-dados-pj/')">Meus dados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="onNavigate('/app-acompanhamento-validacao/')">Acompanhamento/Validação</a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="nav-item">
+            <a href="#dados" class="nav-link active" aria-controls="dados" role="tab" data-toggle="tab">Meus dados</a>
+        </li>
+        <li role="presentation" class="nav-item">
+            <a href="#acompanhamentos" class="nav-link" aria-controls="acompanhamentos" role="tab" data-toggle="tab">Acompanhamentos</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="dados">
+            <div class="row">
+                <div class="col">
+                    <h1 class="titulo">Dados cadastrais</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="texto">Todos os dados deste formulário são obrigatórios. Antes de salvar as informações
+                        verifique
+                        se todas estão corretas e se todos os documentos obrigatórios estão presentes. Não serão aceitos
+                        cadastros com informações pendentes.</p>
+
+                    <app-tabs></app-tabs>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="acompanhamentos">
+            <div class="row">
+                <div class="col">
+                    <h1 class="titulo">Acompanhamentos</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="texto">Todos os dados deste formulário são obrigatórios. Antes de salvar as informações
+                        verifique
+                        se todas estão corretas e se todos os documentos obrigatórios estão presentes. Não serão aceitos
+                        cadastros com informações pendentes.</p>
+
+                    <!-- Tab panes -->
+                    <app-acompanhamento-validacao></app-acompanhamento-validacao>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

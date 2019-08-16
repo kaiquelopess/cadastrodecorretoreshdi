@@ -1,0 +1,211 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit('contatos')">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="codigoSusep">Código Susep</label>
+					<input NumbersOnly [allowDecimals]="false" [allowSign]="false" type="text" id="codigoSusep" class="form-control" maxlength="20" formControlName="susep">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="cnpj">CNPJ</label>
+					<input NumbersOnly [allowDecimals]="false" [allowSign]="false" type="text" id="cnpj" class="form-control" placeholder="00.000.000/0001-00" maxlength="20" formControlName="cpfcnpj" mask="00.000.000/0000-00">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="nome">Razão Social</label>
+					<input type="text" id="nome" class="form-control" maxlength="30" formControlName="nome">
+				</div>
+			</div>
+		</div>
+
+        <div class="row">
+			<div class="col-md-2">
+				<ng-form [formGroup]="cepForm">
+					<div class="form-group required">
+						<label class="control-label" for="cep">CEP</label>
+						<input type="text" formControlName="cepParam" id="cepParam" class="form-control" mask="00000-000" maxlength="9">
+					</div>
+				</ng-form>
+			</div>
+			<div class="col-md-1">
+				<div class="form-group">
+					<label for="cep" class="hidden-text">Pesquisar</label>
+					<button type="button" class="btn btn-sm button custom" (click)="getCep()" [disabled]="!cepForm.valid">Buscar</button>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group required">
+					<label class="control-label" for="sucursalSelect">Sucursal</label>
+					<select class="form-control" formControlName="sucursalAtiva" id="sucursalSelect">
+						<option *ngFor="let sucursal of sucursaisProx" [value]="sucursal.CodSucursal">{{ sucursal.Nome }}</option>
+					</select>
+					<div *ngIf="contactForm.controls.sucursalAtiva.errors" class="mt-2 text-error">
+						<div *ngIf="contactForm.controls.sucursalAtiva.errors.required">Escolha uma sucursal</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="simplesNacional" class="hidden-text">Optante Simples Nacional</label>
+					<div>
+						<div class="form-check form-check-inline check-fix">
+							<input type="checkbox" class="form-check-input" id="simplesNacional" value="option1" formControlName="simplesNacional">
+							<label class="form-check-label" for="simplesNacional">É optante do Simples Nacional</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h6>Sucursais Ativas</h6>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Sucursal</th>
+							<th scope="col">Executivo de Conta</th>
+							<th scope="col">Desde</th>
+							<th scope="col">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							*ngFor="let ativas of sucursaisAtivas | paginate: {itemsPerPage: 10, currentPage:pagination.currentPage, totalItems: pagination.totalItems}">
+							<td>{{ ativas.NomeSucursal }}</td>
+							<td>{{ ativas.ExecContas }}</td>
+							<td>{{ ativas.DataCadastro }}</td>
+							<td>{{ ativas.Situacao }}</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- <pagination-controls (pageChange)="pageChanged($event)" previousLabel="Anterior" nextLabel="Próximo">
+				</pagination-controls> -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h6>Endereço</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label for="cep">CEP</label>
+					<input type="text" id="cep" class="form-control" mask="00000-000" formControlName="cep_cor">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label for="end">Endereço</label>
+					<input type="text" id="end" class="form-control" formControlName="endereco_cor">
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label for="num">Número</label>
+					<input type="text" id="num" class="form-control" formControlName="numero_cor">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="complemento">Complemento</label>
+				<input type="text" id="complemento" class="form-control" formControlName="complemento_cor">
+			</div>
+			<div class="col">
+				<label for="bairro">Bairro</label>
+				<input type="text" id="bairro" class="form-control" formControlName="bairro_cor">
+			</div>
+			<div class="col">
+				<label for="municipio">Municipio</label>
+				<input type="text" id="municipio" class="form-control" formControlName="cidade_cor">
+			</div>
+			<div class="col">
+				<label for="estado">Estado</label>
+				<input type="text" id="estado" class="form-control" formControlName="uf_cor">
+			</div>
+		</div>
+		<br /><br />
+		<div class="row">
+			<div class="col">
+				<h6>Dados Bancários</h6>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col">
+				<p class="atencao"><strong>Atenção:</strong> para que suas comissões sejam pagas corretamente, é obrigatório que o títular da conta seja o mesmo CPF.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group required">
+					<label class="control-label" for="bancoSelect">Banco</label>
+					<select class="form-control" formControlName="codBanco" id="bancoSelect">
+						<option *ngFor='let banco of bancos' ngValue="{{ banco.codBanco }}">{{ banco.nomBanco }}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group required">
+					<label class="control-label" for="agencia">Agencia</label>
+					<input NumbersOnly [allowDecimals]="false" [allowSign]="false" type="text" id="agencia" class="form-control" formControlName="codAgencia" minlength="4" maxlength="4">
+					<div *ngIf="contactForm.controls.codAgencia.errors" class="mt-2 text-error">
+						<div *ngIf="contactForm.controls.codAgencia.errors.minlength">Informe uma agência válida</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group required">
+					<label class="control-label" for="dvAgencia">Digito Agencia</label>
+					<input type="text" id="dvAgencia" class="form-control" formControlName="dvAgencia" maxlength="1" oninput="this.value = this.value.toUpperCase()">
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group required">
+					<label class="control-label" for="conta">Conta</label>
+					<input NumbersOnly [allowDecimals]="false" [allowSign]="false" type="text" id="conta" class="form-control" formControlName="conta" minlength="5" maxlength="11">
+					<div *ngIf="contactForm.controls.conta.errors" class="mt-2 text-error">
+						<div *ngIf="contactForm.controls.conta.errors.minlength">Informe uma conta válida</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group required">
+					<label class="control-label" for="dvConta">Digito Conta</label>
+					<input type="text" id="dvConta" class="form-control" formControlName="dvConta" maxlength="1" oninput="this.value = this.value.toUpperCase()">
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="form-group required">
+					<label class="control-label" for="camaraCompensacao">Câmara de Compensação</label>
+					<input NumbersOnly [allowDecimals]="false" [allowSign]="false" type="text" id="camaraCompensacao" class="form-control" formControlName="codCamara" minlength="3" maxlength="3">
+					<div *ngIf="contactForm.controls.codCamara.errors" class="mt-2 text-error">
+						<div *ngIf="contactForm.controls.codCamara.errors.minlength">Informe uma câmara de compensação válida</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="checkbox" class="form-check-inline" id="ciencia" formControlName="ciencia">
+						Ao enviar este cadastro, eu a Corretora, assumo total responsabilidade pelos dados aqui enviados como expressão da verdade
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button type="submit" id="registro" class="btn btn-sm button custom float-right">Próximo</button>
+				<!-- [disabled]="!contactForm.valid" -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">&nbsp;</div>
+		</div>
+	</div>
+</form>

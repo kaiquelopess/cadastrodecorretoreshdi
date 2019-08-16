@@ -1,0 +1,17 @@
+.topContainer{
+    position: absolute;
+    top: -190px;
+    left: 8%;
+}
+
+.texto{
+    font-weight: bold;
+    font-size: 12pt;
+    color: rgb(00, 156, 51);
+}
+
+
+h2{
+    font-weight: bold;
+    font-size: 20px;
+}

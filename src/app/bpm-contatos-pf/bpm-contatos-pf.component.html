@@ -1,0 +1,198 @@
+<form>
+  <div class="container mt-3">
+    <div class="row mt-4">
+      <div class="col">
+        <strong>Contato RE</strong>
+        <div class="form-group">
+          <label for="emailRenova">E-mail</label>
+          <input type="email" id="emailRenova" name="emailRenova" [(ngModel)]="salvar.email" class="form-control" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <strong>Contato Nota Fiscal</strong>
+        <div class="form-group">
+          <label for="contatoNotaFiscal">E-mail</label>
+          <input type="email" id="contatoNotaFiscal" name="contatoNotaFiscal" [(ngModel)]="salvar.emailNf"
+            class="form-control" disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <strong>Contato Sinistro</strong>
+        <div class="form-group">
+          <label for="emailSin">E-mail</label>
+          <input type="email" id="emailSin" [(ngModel)]="salvar.emailSin" name="emailSin" class="form-control" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <strong>Contato Extrato</strong>
+        <div class="form-group">
+          <label for="emailExt">E-mail</label>
+          <input type="email" id="emailExt" [(ngModel)]="salvar.emailExt" name="emailExt" class="form-control" disabled>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col">
+          <strong>Endereço</strong> &nbsp; &nbsp;
+        </div>
+      </div>
+
+    
+    <div class="row">
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" id="cep" class="form-control"  mask="00000-000" [(ngModel)]="salvar.cep" disabled>
+            </div>
+        </div>
+
+
+      <div class="col-5">
+        <div class="form-group">
+          <label for="end">Rua</label>
+          <input type="text" name="end" id="end" class="form-control" [(ngModel)]="salvar.endereco" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="num">Número</label>
+          <input type="text" name="num" id="num" class="form-control" [(ngModel)]="salvar.numero" disabled>
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <label for="complemento">Complemento</label>
+        <input type="text" name="complemento" id="complemento" class="form-control"
+          [(ngModel)]="salvar.complemento" disabled>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <label for="bairro">Bairro</label>
+        <input type="text" name="bairro" id="bairro" class="form-control" [(ngModel)]="salvar.bairro" disabled>
+      </div>
+
+    
+      <div class="col">
+        <label for="municipio">Municipio</label>
+        <input type="text" name="municipio" id="municipio" class="form-control" [(ngModel)]="salvar.municipio"
+        disabled>
+      </div>
+
+      <div class="col">
+        <label for="estado">Estado</label>
+        <input type="text" name="estado" id="estado" class="form-control" [(ngModel)]="salvar.uf"
+          maxlength="2" disabled>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <strong>Contatos Corretora</strong> &nbsp; &nbsp;
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" [(ngModel)]="usuarioss.nome" class="form-control" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="emailUsuario">E-mail</label>
+          <input type="emailUsuario" id="emailUsuario" name="emailUsuario" [(ngModel)]="usuarioss.email"
+            class="form-control" disabled>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" [(ngModel)]="usuarioss.cpf" mask="000.000.000-00" name="cpf" class="form-control" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="dtNasc">Data de Nascimento</label>
+          <input type="text" id="dtNasc" name="dtNasc" mask="00/00/0000" [(ngModel)]="salvar.dataNasc" class="form-control" disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="telComercial">Telefone Comercial </label>
+          <input type="text" id="telComercial" mask="(00)0000-0000" name="telComercial" [(ngModel)]="salvar.telComercial"
+            class="form-control" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="telCelular">Telefone Celular </label>
+          <input type="text" id="telCelular" mask="(00)00000-0000" name="telCelular" [(ngModel)]="salvar.telCelular" class="form-control" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="cargo">Cargo</label>
+          <select class="form-control" id="cargo" name="cargo" [(ngModel)]="salvar.cargo" disabled>
+            <option *ngFor='let cargo of cargos' (ngValue)="cargo">{{ cargo.SbgrDs }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col align-self-center">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>CPF</th>
+              <th>Nascimento</th>
+              <th>Telefone Comercial</th>
+              <th>Telefone Celular</th>
+              <th>Cargo</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let listarItens of corretoresContatos">
+              <td>{{ listarItens.nome }}</td>
+              <td>{{ listarItens.email }}</td>
+              <td>{{ listarItens.cpf }}</td>
+              <td>{{ listarItens.dtNasc }}</td>
+              <td>{{ listarItens.telComercial }}</td>
+              <td>{{ listarItens.telCelular }}</td>
+              <td>{{ listarItens.cargo }}</td>
+              <td><span class="fa fa-pencil" id="caneta"></span> &nbsp; <span class="fa fa-trash" id="lixeira"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
+
+  </div>
+
+</form>

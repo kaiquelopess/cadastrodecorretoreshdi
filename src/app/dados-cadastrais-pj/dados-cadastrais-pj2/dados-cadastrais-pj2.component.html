@@ -1,0 +1,316 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit('docs')">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <h6>Contato RE</h6>
+                <div class="form-group required">
+                    <label class="control-label" for="emailRenova">E-mail</label>
+                    <input id="emailRenova" class="form-control" type="email" maxlength="60"
+                           formControlName="emailRenova">
+                    <div *ngIf="contactForm.controls.emailRenova.errors" class="mt-2 text-error">
+                        <div *ngIf="contactForm.controls.emailRenova.errors.email">O email informado é inválido.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h6>Contato Nota Fiscal</h6>
+                <div class="form-group required">
+                    <label class="control-label" for="contatoNotaFiscal">E-mail</label>
+                    <input id="contatoNotaFiscal" class="form-control" type="email" maxlength="60"
+                           formControlName="emailNotaFiscal">
+                    <div *ngIf="contactForm.controls.emailNotaFiscal.errors" class="mt-2 text-error">
+                        <div *ngIf="contactForm.controls.emailNotaFiscal.errors.email">O email informado é inválido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h6>Contato Sinistro</h6>
+                <div class="form-group required">
+                    <label class="control-label" for="emailSin">E-mail</label>
+                    <input id="emailSin" class="form-control" type="email" maxlength="60" formControlName="emailSin">
+                    <div *ngIf="contactForm.controls.emailSin.errors" class="mt-2 text-error">
+                        <div *ngIf="contactForm.controls.emailSin.errors.email">O email informado é inválido.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h6>Contato Extrato</h6>
+                <div class="form-group required">
+                    <label class="control-label" for="emailExt">E-mail</label>
+                    <input id="emailExt" type="email" maxlength="60" class="form-control" formControlName="emailExt">
+                    <div *ngIf="contactForm.controls.emailExt.errors" class="mt-2 text-error">
+                        <div *ngIf="contactForm.controls.emailExt.errors.email">O email informado é inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-left: 1px;">
+            <h6>Endereço</h6>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group required">
+                    <label class="control-label" for="cep">CEP</label>
+                    <input type="text" name="cep" id="cep" class="form-control" maxlength="9" mask="00000-000"
+                           formControlName="cep" (blur)="getCep()">
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-group required">
+                    <label class="control-label" for="end">Endereço</label>
+                    <input id="end" type="text" class="form-control" maxlength="40" formControlName="endereco">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group required">
+                    <label class="control-label" for="num">Número</label>
+                    <input NumbersOnly [allowDecimals]="false" [allowSign]="false" type="text" id="num"
+                           class="form-control" formControlName="numero" maxlength="5">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="control-label" for="complemento">Complemento</label>
+                <input id="complemento" type="text" class="form-control" maxlength="20" formControlName="complemento" (keypress)="validarCaracter($event)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group required">
+                    <label class="control-label" for="bairro">Bairro</label>
+                    <input id="bairro" type="text" class="form-control" maxlength="50" formControlName="bairro">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group required">
+                    <label class="control-label" for="municipio">Municipio</label>
+                    <input id="municipio" type="text" class="form-control" maxlength="40" formControlName="municipio">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group required">
+                    <label class="control-label" for="estado">Estado</label>
+                    <select name="estados-brasil" class="form-control" formControlName="uf">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group required">
+                    <label class="control-label" for="telefoneComercial">Telefone Comercial</label>
+                    <input id="telefoneComercial" type="text" maxlength="15" class="form-control"
+                           formControlName="telefoneComercial" mask="(00)0000-0000">
+                    <div *ngIf="contactForm.controls.telefoneComercial.errors" class="mt-2 text-error">
+                        <div *ngIf="contactForm.controls.telefoneComercial.errors.minLength">Informe um telefone
+                            comercial válido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group required">
+                    <label class="control-label" for="telefoneCelular">Telefone Celular</label>
+                    <input id="telefoneCelular" type="text" class="form-control" maxlength="15"
+                           formControlName="telefoneCelular" mask="(00)00000-0000">
+                    <div *ngIf="contactForm.controls.telefoneCelular.errors" class="mt-2 text-error">
+                        <div *ngIf="contactForm.controls.telefoneCelular.errors.minLength">Informe um celular válido.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">&nbsp;<br/><br/></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <h6>Contatos Corretora</h6>
+            </div>
+        </div>
+
+        <ng-form [formGroup]="corretoraForm">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label for="nome">Nome</label>
+                    <input id="nome" type="text" class="form-control" maxlength="50" TextOnly formControlName="nome">
+                    <!--<div *ngIf="corretoraForm.controls.nome.errors" class="mt-2 text-error">
+                        <div *ngIf="corretoraForm.controls.nome.errors.required">O nome é obrigatório.</div>
+                    </div>-->
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="emailUsuario">E-mail</label>
+                    <input id="emailUsuario" type="text" class="form-control" maxlength="60"
+                           formControlName="emailUsuario">
+                    <!--<div *ngIf="corretoraForm.controls.emailUsuario.errors" class="mt-2 text-error">
+                        <div *ngIf="corretoraForm.controls.emailUsuario.errors.required">O email é obrigatório.</div>
+                        <div *ngIf="corretoraForm.controls.emailUsuario.errors.email">O email informado é inválido.
+                        </div>
+                    </div>-->
+                </div>
+                <div class="col-md-2 form-group">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" type="text" class="form-control" formControlName="cpf" maxlength="14"
+                           mask="000.000.000-00">
+                    <!--<div *ngIf="corretoraForm.controls.cpf.errors" class="mt-2 text-error">
+                        <div *ngIf="corretoraForm.controls.cpf.errors.required">O CPF é obrigatório.</div>
+                    </div>-->
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="dtNasc">Data de Nascimento</label>
+                        <input id="dtNasc" type="text" class="form-control" maxlength="10" formControlName="dtNasc"
+                               mask="d0/M0/0000">
+                        <!--<div *ngIf="corretoraForm.controls.dtNasc.errors" class="mt-2 text-error">
+                            <div *ngIf="corretoraForm.controls.dtNasc.errors.required">Informe uma data válida.</div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="telComercial">Telefone Comercial</label>
+                        <input id="telComercial" type="text" class="form-control" formControlName="telComercial"
+                               maxlength="15" mask="(00)0000-0000">
+                        <!--<div *ngIf="corretoraForm.controls.telComercial.errors" class="mt-2 text-error">
+                            <div *ngIf="corretoraForm.controls.telComercial.errors.required">O telefone comercial é
+                                obrigatório.
+                            </div>
+                            <div *ngIf="corretoraForm.controls.telComercial.errors.minLength">Informe um telefone
+                                comercial válido.
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="telCelular">Telefone Celular</label>
+                        <input id="telCelular" type="text" class="form-control" formControlName="telCelular"
+                               maxlength="15" mask="(00)00000-0000">
+
+                        <!--<div *ngIf="corretoraForm.controls.telCelular.errors" class="mt-2 text-error">
+                            <div *ngIf="corretoraForm.controls.telCelular.errors.required">O celular é obrigatório.
+                            </div>
+                            <div *ngIf="corretoraForm.controls.telCelular.errors.minLength">Informe um celular válido.
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="cargo">Cargo</label>
+                        <select id="cargo" class="form-control" formControlName="cargo">
+                            <option>Escolha um cargo</option>
+                            <option *ngFor='let cargo of cargos' value="{{cargo.SbgrId}}"
+                                    (ngValue)="cargo.SbgrId">{{ cargo.SbgrDs }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label for="cargo">&nbsp;</label>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-sm button custom float-right"
+                                (click)="cadastraContato()">Incluir contato
+                        </button>
+                        <!-- [disabled]="!corretoraForm.valid || !contactForm.valid" -->
+                    </div>
+                </div>
+            </div>
+        </ng-form>
+
+        <div class="row">
+            <div class="col align-self-center">
+                <table class="table table-hover ftnover">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>CPF</th>
+                        <th>Nascimento</th>
+                        <th>Telefone Comercial</th>
+                        <th>Telefone Celular</th>
+                        <!--<th>Cargo</th>-->
+                        <!--<th>Ação</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let listarItens of corretoresContatos">
+                        <td>{{ listarItens.nomeContato }}</td>
+                        <td>{{ listarItens.emailUsuario }}</td>
+                        <td>{{ listarItens.cpfContato }}</td>
+                        <td>{{ listarItens.dtNascContato }}</td>
+                        <td>{{ listarItens.telComercialContato }}</td>
+                        <td>{{ listarItens.telCelularContato }}</td>
+                        <!--<td>{{ listarItens.cargoContato }}</td>-->
+                        <!--<td><span class="fa fa-pencil" id="caneta"></span> &nbsp; <span class="fa fa-trash"
+                                                                                        id="lixeira"></span>
+                        </td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- <div class="row">
+                <div class="col align-self-end mt-5">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#"><i class="fa fa-arrow-left"></i> Anterior</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próximo <i class="fa fa-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-1 offset-10">
+                <button type="button" (click)="voltar('registro')"
+                        class="btn btn-sm button custom float-right">Voltar
+                </button>
+            </div>
+            <div class="col-1">
+                <button type="submit" class="btn btn-sm button custom float-right">Próximo</button>
+                <!-- [disabled]="!contactForm.valid" -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">&nbsp;</div>
+        </div>
+    </div>
+</form>

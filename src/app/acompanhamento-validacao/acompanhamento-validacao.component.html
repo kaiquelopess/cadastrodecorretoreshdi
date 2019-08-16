@@ -1,0 +1,66 @@
+<form>
+	<div class="row">
+		<div class="col-md-12 mt-4">
+			<strong>Acompanhamento do Processo de Validação</strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col mt-4">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Passo</th>
+						<th>Responsavel</th>
+						<th>SLA Esperado</th>
+						<th>SLA Efetivo</th>
+						<th>Data Inicial</th>
+						<th>Data Final</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let passo of passoAprovacao">
+						<td>{{ passo.descPasso }}</td>
+						<td>{{ passo.cargoAprov }}</td>
+						<td>{{ passo.slaEsperado }}</td>
+						<td>{{ passo.slaEfetivo }}</td>
+						<td>{{ passo.datInicio }}</td>
+						<td>{{ passo.datFim }}</td>
+						<td>
+							<span class="fa fa-check" style="color: green;"
+								*ngIf="validaLegenda(passo.situacao) == 3"></span>
+							<span class="fa fa-exclamation-triangle" style="color: red;"
+								*ngIf="validaLegenda(passo.situacao) == 2"></span>
+							<span class="fa fa-clock-o" style="color: yellow;"
+								*ngIf="validaLegenda(passo.situacao) == 1"></span>
+							<span class="fa fa-clock-o" style="color: orange;"
+								*ngIf="validaLegenda(passo.situacao) == 0"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-3">
+
+			<div class="borda">
+				<div class="container">
+					<strong>Legenda</strong>
+					<div class="row">
+						<span class="fa fa-check" id="check"></span>&nbsp; Validação positiva
+					</div>
+					<div class="row">
+						<span class="fa fa-exclamation-triangle" id="alert"></span> &nbsp; Validação Negativa
+					</div>
+					<div class="row">
+						<span class="fa fa-clock-o" id="vea"></span> &nbsp; Validação em Andamento
+					</div>
+					<div class="row">
+						<span class="fa fa-clock-o" id="vni"></span> &nbsp; Validação Não Iniciada
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

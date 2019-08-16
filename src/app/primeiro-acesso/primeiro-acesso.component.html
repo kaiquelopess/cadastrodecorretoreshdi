@@ -1,0 +1,73 @@
+<div class="container topform">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-2">
+            <div class="offset-sm-3 offset-md-3 offset-lg-3 col-sm-8 col-md-8 col-lg-6 registro">
+                <div class="row">
+                    <div class="col">
+                        <p class="formTitle">Informar Dados Acesso</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group required">
+                            <label class="control-label" for="nome">Nome</label>
+                            <input id="nome" formControlName="nome" class="form-control " type="text" TextOnly maxlength="50" (keypress)="validarCaracter($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group required">
+                            <label class="control-label" for="email">Email</label>
+                            <input id="email" class="form-control" formControlName="emailUsuario" type="email" maxlength="60">
+                            <div *ngIf="f.emailUsuario.errors" class="mt-2 text-error">
+                                <div *ngIf="f.emailUsuario.errors.email">O email informado é inválido.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group required">
+                            <label class="control-label" for="cpf">CPF</label>
+                            <input id="cpf" class="form-control" formControlName="cpf" type="text" maxlength="14" mask="000.000.000-00">
+                            <div *ngIf="f.cpf.errors" class="mt-2 text-error">
+                                <div *ngIf="f.cpf.errors.minlength || f.cpf.errors.maxlength">O CPF
+                                    informado é inválido.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group required">
+                            <label class="control-label" for="senha">Senha</label>
+                            <input id="senha" formControlName="senha" class="form-control" type="password" minlength="8" maxlength="30">
+                            <div *ngIf="f.senha.errors" class="mt-2 text-error">
+                                <div *ngIf="f.senha.errors.minlength || f.senha.errors.maxlength">A senha deve conter entre 8 e 30
+                                    caracteres.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group required">
+                            <label class="control-label" for="confirmarSenha">Confirmar a Senha</label>
+                            <input id="confirmarSenha" class="form-control " type="password" formControlName="confirmarSenha" minlength="8"
+                                   maxlength="30">
+                            <div *ngIf="f.confirmarSenha.errors" class="mt-2 text-error">
+                                <div *ngIf="f.confirmarSenha.errors.minlength || f.confirmarSenha.errors.maxlength">A senha deve conter
+                                    entre 8 e 30 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="botaovalidar btn btn-raised btn-success pull-right" [disabled]="!registerForm.valid">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

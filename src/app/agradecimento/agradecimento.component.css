@@ -1,0 +1,12 @@
+
+
+.titulo {
+    font-size: 30px;
+    margin-top: 40px;
+    font: HDI-Gerling Sans;
+    font-weight: bold;
+}
+
+.rotas{
+    cursor: pointer;
+}

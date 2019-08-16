@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  hdi_cadastro_corretores_bpm:
+    image: hdi_cadastro_corretores_bpm
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 4200:4200

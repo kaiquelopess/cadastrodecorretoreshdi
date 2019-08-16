@@ -1,0 +1,48 @@
+<form>
+    <div class="row">
+        <div class="col text-center">
+            <a class="rotas" (click)="possuiUsuarioSenha()" role="button">Clique aqui se já possui Usuário e Senha de
+                Corretor(a)</a>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="offset-sm-3 offset-md-3 offset-lg-4 col-sm-6 col-md-6 col-lg-4 registro">
+            <div class="row">
+                <div class="col">
+                    <p class="formTitle">Quero me cadastrar</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group required">
+                        <label for="registroSusep" class="control-label">Registro SUSEP</label>
+                        <input id="registroSusep"
+                               name="registroSusep" class="form-control " type="text" pattern="[0-9]"
+                               [(ngModel)]="formulario.registroSusep" maxlength="14" (blur)="padSusep()"
+                               NumbersOnly [allowDecimals]="false" ng-paste="paste=true" [allowSign]="false">
+                    </div>
+                    <!--NumbersOnly [allowDecimals]="false" ng-paste="paste=true" [allowSign]="false"-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group required">
+                        <label for="cnpjCpf" class="control-label">CNPJ ou CPF</label>
+                        <input type="text" name="cnpjCpf" NumbersOnly [allowDecimals]="false"
+                               id="cnpjCpf" class="form-control"
+                               [ngModel]="formulario.cnpjCpf | cnpjCpfFormat" (blur)="setCnpjCpf($event.target.value)"
+                               maxlength="14">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <button type="button" class="botaoHdi btn btn-success pull-right"
+                            (click)="validar()">Validar
+                        Dados
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

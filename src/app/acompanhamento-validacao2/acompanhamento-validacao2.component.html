@@ -1,0 +1,42 @@
+<form>
+  <div class="container">
+    <div class="row">
+      <div class="col mt-4">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Responsavel</th>
+              <th>Histórico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hist of historico">
+              <td>{{ hist.datAprov }}</td>
+              <td>{{ hist.cargoAprov }}</td>
+              <td>{{ hist.descricao }}</td>
+              <!-- <i class="fa fa-exclamation-circle" id="alert2"></i>  -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <!-- <div class="row">
+              <div class="col align-self-end">
+                <nav>
+                  <ul class="pagination">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#"><i class="fa fa-arrow-left"></i> Anterior</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Próximo <i class="fa fa-arrow-right"></i></a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div> -->
+    </div>
+
+  </div>
+</form>

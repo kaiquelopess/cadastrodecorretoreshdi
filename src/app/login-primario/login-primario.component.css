@@ -1,0 +1,43 @@
+
+.registro {
+        background-color: rgb(241, 238, 238);
+        padding: 20px;
+        font-weight: normal;
+        font-size: 11px;
+        color: rgb(120, 120, 120);
+    }
+
+
+/*     #registroSusep {
+        width: 330px;
+        height: 35px;
+    } */
+
+/*     #cnpjCpf {
+        width: 330px;
+        height: 35px;
+    } */
+
+/*     .botaoLogin {
+        margin-left: 205px;
+    } */
+
+    .titulo {
+        font-size: 30px;
+        margin-top: 40px;
+        font-weight: bold;
+    }
+
+    #preloader {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+        background: #ccc;
+    }
+
+    .botaovalidar{
+        font-weight: bold;
+        font-size: 10px;
+    }

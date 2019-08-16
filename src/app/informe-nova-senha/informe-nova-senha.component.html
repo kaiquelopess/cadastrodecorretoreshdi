@@ -1,0 +1,42 @@
+<form>
+    <div class="row mt-2">
+      <div class="offset-sm-3 offset-md-3 offset-lg-4 col-sm-6 col-md-6 col-lg-4 registro">
+        <div class="row">
+          <div class="col">
+            <p class="senhaacesso">Informe Senha Acesso</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="cpf">CPF</label>
+              <input NumbersOnly [allowDecimals]="false" [allowSign]="false" id="cpf" name="cpf" class="form-control "
+                type="text" maxlength="14">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input id="senha" name="senha" minlength="8" maxlength="20" class="form-control " type="password">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirmar a Senha</label>
+                    <input id="confirmarSenha" minlength="8" maxlength="20" name="confirmarSenha" class="form-control " type="password">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <button type="button" class="btn btn-raised btn-success pull-right">Ok</button>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </form>

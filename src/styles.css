@@ -1,0 +1,209 @@
+@import 'fonts.css';
+@import 'main.css';
+
+#main {
+    width: 100%;
+    position: relative;
+    float: left;
+    min-height: 540px;
+    min-width: 320px;
+    /*background: url(assets/img/bg_header.png) center top no-repeat #fff;
+    background: url(assets/img/bg_header.svg) center top no-repeat #fff;*/
+}
+
+#main.margin {
+    margin-left: 20px;
+}
+
+#main.desktop {
+    width: 60vw;
+    min-width: 450px;
+    height: 60vh;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    position: absolute;
+    left: 50%;
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+#main.desktop::before {
+    width: 100%;
+    height: 90px;
+    background: url(assets/img/logo-hdi.png) top left no-repeat #009c49;
+    color: #fff;
+    font-size: 2.5em;
+    content: 'Cadastro de Corretores';
+    display: block;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    line-height: 90px;
+    padding-left: 115px;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 30%;
+    min-height: 250px;
+    position: relative;
+    float: left;
+    padding-top: 45px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+header.end {
+    background: url(assets/img/bg_pixel.png) bottom center repeat-x #009C49;
+    height: 160px;
+    padding: 0;
+    min-height: 160px;
+}
+
+header.end .logo {
+    position: absolute;
+    border-bottom: 1px solid #F6F6F6;
+    display: block;
+    background: url(assets/img/logo-hdi-lg.png) left no-repeat #fff;
+    width: 130px;
+    height: 130px;
+    margin: 0;
+    top: 10px;
+    left: 10%;
+    -moz-transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+    -o-transform: translateX(-10%);
+    -ms-transform: translateX(-10%);
+    transform: translateX(-10%);
+}
+
+header.end h2 {
+    float: left;
+    font-family: 'HDI-Regular';
+    color: #fff;
+    font-size: 20pt;
+    margin-left: calc(130px + 10%);
+    margin-top: calc(120px / 2);
+}
+
+header.end .content {
+    position: absolute;
+    margin-top: 400px;
+    left: 0;
+    width: 99%;
+    color: rgb(120, 120, 120);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: 'HDICond-Regular';
+    font-size: 16px;
+}
+
+button.submit {
+    background: #009C49;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    font-family: 'HDI-Regular';
+    font-size: 10pt;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+button.submit:hover {
+    background-color: #2baa6e;
+    color: #fff;
+}
+
+.botaoHdi {
+    font-weight: bold;
+    font-size: 10px;
+}
+
+button.custom {
+    display: block;
+    clear: both;
+    height: 35px;
+    float: left;
+    background: #009C49;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 0.8em;
+    font-family: 'HDI-Regular';
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    border: 1px solid #009C49;
+}
+
+label {
+    color: #777;
+    line-height: 15px;
+    display: block;
+    width: auto;
+    flex: 1;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-family: 'HDI-Regular';
+    cursor: pointer;
+}
+
+a {
+    line-height: 20px;
+    display: block;
+    width: auto;
+    flex: 1;
+    font-size: 10pt;
+    color: rgb(00, 156, 151) !important;
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+
+.rotas:hover {
+    text-decoration: underline;
+}
+
+.formTitle {
+    font-size: 1.5em;
+    font-family: 'HDI-Regular';
+    text-align: center;
+}
+
+h1.titulo {
+    color: rgb(00, 156, 151) !important;
+    padding: 15px 0;
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 16px !important;
+}
+
+.black-overlay {
+    position: fixed !important;
+}
+
+select {
+    height: 38px !important;
+}
+
+.text-error{
+    font-family: 'HDI-Regular';
+    color: #a20000;
+    font-size: 11px;
+}
+
+.form-group.required .control-label:after {
+    content:" *";
+    color:red;
+}
+
+.ftnover{
+    font-size: 16px !important;
+}

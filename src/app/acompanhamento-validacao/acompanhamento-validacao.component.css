@@ -1,0 +1,31 @@
+.borda{
+    border: solid 3px rgb(112, 154, 218);
+    padding: 10px;  
+    margin-bottom: 40px;
+}
+#check{
+    color: green;
+}
+
+#alert{
+    color: red;
+}
+
+#vea{
+    color: yellow;
+}
+
+#vni{
+    color: orange;
+}
+
+#check, #alert, #vea, #vni{
+    font-size: 20px;
+}
+
+#slaEfetivo{
+
+height: 25px;
+width: 50px;
+
+}

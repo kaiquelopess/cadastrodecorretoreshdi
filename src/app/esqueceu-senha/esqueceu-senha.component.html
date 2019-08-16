@@ -1,0 +1,39 @@
+<form [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmit()">
+    <div class="row mt-2">
+        <div class="offset-sm-3 offset-md-3 offset-lg-4 col-sm-6 col-md-6 col-lg-4 registro">
+            <div class="row">
+                <div class="col">
+                    <p class="formTitle">Esqueci minha senha</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group required">
+                        <label for="cpf" class="control-label">CPF</label>
+                        <input id="cpf" class="form-control" maxlength="14" type="text" formControlName="cpf" mask="000.000.000-00">
+                        <div *ngIf="forgotPasswordForm.controls.cpf.errors" class="mt-2 text-error">
+                            <div *ngIf="forgotPasswordForm.controls.cpf.getError('cpfNotValid')">O cpf não é válido.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group required">
+                        <label for="email" class="control-label">Email</label>
+                        <input id="email" class="form-control" maxlength="60" type="text" formControlName="email">
+                        <div *ngIf="forgotPasswordForm.controls.email.errors" class="mt-2 text-error">
+                            <div *ngIf="forgotPasswordForm.controls.email.errors.email">O e-mail não é válido.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <button type="submit" class="botaoHdi btn btn-success pull-right" [disabled]="!forgotPasswordForm.valid">Enviar senha
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,200 @@
+<form #frm="ngForm">
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="codigoSusep">Código Susep</label>
+          <input type="text" id="codigoSusep" name="codigoSusep" class="form-control" maxlength="20"
+            [(ngModel)]="salvar.susep" disabled>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="cnpj">CNPJ</label>
+          <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0001-00" maxlength="20"
+            [(ngModel)]="salvar.cpfcnpj" mask="00.000.000/0000-00" disabled>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nome">Razão Social</label>
+          <input type="text" id="nome" name="nome" class="form-control" maxlength="30" [(ngModel)]="salvar.nome"
+            disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="sucursalSelect">Escolha sua Sucursal</label>
+          <input class="form-control" [(ngModel)]="salvar.sucursalAtiva" id="sucursalSelect" name="sucursalSelect"
+            disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="simplesNacional" [(ngModel)]="salvar.simplesNacional" name="option1" value="option1" disabled>
+          <label class="form-check-label" for="simplesNacional">É optante do Simples Nacional</label> <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h6>Sucursais Ativas</h6>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Sucursal</th>
+              <th scope="col">Executivo de Conta</th>
+              <th scope="col">Desde</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ativas of sucursaisAtivas">
+              <td>{{ ativas.NomeSucursal }}</td>
+              <td>{{ ativas.ExecContas }}</td>
+              <td>{{ ativas.DataCadastro }}</td>
+              <td>{{ ativas.Situacao }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <pagination-controls
+          (pageChange)="pageChanged($event)"
+          previousLabel="Anterior"
+          nextLabel="Próximo"></pagination-controls> -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h6>Endereço</h6>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="cep">CEP</label>
+          <input type="text" name="cep" id="cep" class="form-control" placeholder="XXXXX-XXX" maxlength="10"
+            [(ngModel)]="salvar.cep" disabled>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="end">Endereço</label>
+          <input type="text" name="end" id="end" class="form-control" [(ngModel)]="salvar.endereco" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="num">Número</label>
+          <input type="text" name="num" id="num" class="form-control" [(ngModel)]="salvar.numero" disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="complemento">Complemento</label>
+        <input type="text" name="complemento" id="complemento" class="form-control" [(ngModel)]="salvar.complemento"
+          disabled>
+      </div>
+
+      <div class="col">
+        <label for="bairro">Bairro</label>
+        <input type="text" name="bairro" id="bairro" class="form-control" [(ngModel)]="salvar.bairro" disabled>
+      </div>
+
+      <div class="col">
+        <label for="municipio">Municipio</label>
+        <input type="text" name="municipio" id="municipio" class="form-control" [(ngModel)]="salvar.municipio" disabled>
+      </div>
+
+      <div class="col">
+        <label for="estado">Estado</label>
+        <input type="text" name="estado" id="estado" class="form-control" [(ngModel)]="salvar.uf" disabled>
+      </div>
+    </div>
+
+    <br /><br />
+    <div class="row">
+      <div class="col">
+        <h6>Dados Bancários</h6>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col">
+
+        <p class="atencao"><strong>Atenção:</strong> para que suas comissões sejam pagas corretamente, é obrigatório que
+          o títular da conta seja o mesmo CPF.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="bancoSelect">Banco</label>
+          <select class="form-control" [(ngModel)]="salvar.codBanco" id="bancoSelect" name="codBanco" disabled>
+            <option *ngFor='let banco of bancos' ngValue="{{ banco.codBanco }}">{{ banco.nomBanco }}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="form-group">
+          <label for="agencia">Agencia</label>
+          <input type="text" name="agencia" id="agencia" class="form-control" placeholder=""
+            [(ngModel)]="salvar.codAgencia" maxlength="4" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="dvAgencia">Digito Agencia</label>
+          <input type="text" name="dvAgencia" id="dvAgencia" class="form-control" [(ngModel)]="salvar.dvAgencia"
+            maxlength="1" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="conta">Conta</label>
+          <input type="text" name="conta" id="conta" class="form-control" mask="000000000000" placeholder=""
+            [(ngModel)]="salvar.conta" maxlength="12" disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="dvConta">Digito Conta</label>
+          <input type="text" name="dvConta" id="dvConta" class="form-control" [(ngModel)]="salvar.dvConta" maxlength="1"
+            disabled>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="camaraCompensacao">Câmara de Compensação</label>
+          <input type="text" name="codCamera" id="camaraCompensacao" class="form-control" [(ngModel)]="salvar.codCamara"
+            maxlength="3" disabled>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</form>
