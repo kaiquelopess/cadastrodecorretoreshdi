@@ -408,6 +408,12 @@ export class DadosCadastraisPj2Component implements OnInit {
             errors += 'O campo Estado está vazio\n';
         }
 
+
+        if (this.contactForm.controls.telefoneComercial.value === '0000000000'){
+            errors += 'O telefone não existe.\n';
+        }
+
+        
         if (this.contactForm.controls.telefoneComercial.errors) {
             if (this.contactForm.controls.telefoneComercial.errors.required) {
                 errors += 'O campo Telefone Comercial está vazio\n';
@@ -416,6 +422,10 @@ export class DadosCadastraisPj2Component implements OnInit {
             if (this.contactForm.controls.telefoneComercial.errors.minLength) {
                 errors += 'Informe um Telefone Comercial válido\n';
             }
+        }
+
+        if (this.contactForm.controls.telefoneCelular.value === '00000000000'){
+            errors += 'O telefone não existe.\n';
         }
 
         if (this.contactForm.controls.telefoneCelular.errors) {
@@ -455,8 +465,16 @@ export class DadosCadastraisPj2Component implements OnInit {
             errors += 'Informe uma data de nascimento válida\n';
         }
 
+        if (this.corretoraForm.controls.telComercial.value === '0000000000'){
+            errors += 'O telefone não existe.\n';
+        }
+
         if (this.corretoraForm.controls.telComercial.errors) {
             errors += 'Informe um telefone comercial válido\n';
+        }
+
+        if (this.corretoraForm.controls.telCelular.value === '00000000000'){
+            errors += 'O telefone não existe.\n';
         }
 
         if (this.corretoraForm.controls.telCelular.errors) {

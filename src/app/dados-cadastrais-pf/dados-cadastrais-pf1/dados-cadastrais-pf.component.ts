@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
-import {NgxSpinnerService} from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 // Services
-import {CepService} from '../../services/cep.service';
-import {ListaBancosService} from '../../services/lista-bancos.service';
-import {SucursaisService} from '../../services/sucursais.service';
-import {SalvarDadosService} from 'src/app/services/salvar-dados.service';
-import {ConsultaDadosService} from 'src/app/services/consulta-dados.service';
+import { CepService } from '../../services/cep.service';
+import { ListaBancosService } from '../../services/lista-bancos.service';
+import { SucursaisService } from '../../services/sucursais.service';
+import { SalvarDadosService } from 'src/app/services/salvar-dados.service';
+import { ConsultaDadosService } from 'src/app/services/consulta-dados.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ValidadorDocumentoService } from 'src/app/services/utils/validador-documento.service';
 
@@ -78,10 +78,10 @@ export class DadosCadastraisPfComponent implements OnInit {
 
     // Forms
     contactForm = this.formBuilder.group({
-        susep: [{value: '', disabled: true}],
-        nome: [{value: '', disabled: true}],
+        susep: [{ value: '', disabled: true }],
+        nome: [{ value: '', disabled: true }],
         sucursalAtiva: ['', Validators.required],
-        cpfcnpj: [{value: '', disabled: true}, [
+        cpfcnpj: [{ value: '', disabled: true }, [
             Validators.minLength(11),
             Validators.maxLength(14)
         ]],
@@ -89,16 +89,16 @@ export class DadosCadastraisPfComponent implements OnInit {
         numInss: ['', Validators.required],
         sexo: ['', Validators.required],
         simplesNacional: [false],
-        cep_cor: [{value: '', disabled: true}, [
+        cep_cor: [{ value: '', disabled: true }, [
             Validators.minLength(8),
             Validators.maxLength(8)
         ]],
-        endereco_cor: [{value: '', disabled: true}],
-        numero_cor: [{value: '', disabled: true}],
-        complemento_cor: [{value: '', disabled: true}],
-        bairro_cor: [{value: '', disabled: true}],
-        cidade_cor: [{value: '', disabled: true}],
-        uf_cor: [{value: '', disabled: true}],
+        endereco_cor: [{ value: '', disabled: true }],
+        numero_cor: [{ value: '', disabled: true }],
+        complemento_cor: [{ value: '', disabled: true }],
+        bairro_cor: [{ value: '', disabled: true }],
+        cidade_cor: [{ value: '', disabled: true }],
+        uf_cor: [{ value: '', disabled: true }],
         codBanco: ['', Validators.required],
         codAgencia: ['', Validators.required],
         dvAgencia: ['', Validators.required],
@@ -468,7 +468,7 @@ export class DadosCadastraisPfComponent implements OnInit {
         this.salvar.situacao = '1';
         this.salvar.cod_empresa = sessionStorage.getItem('cod_empresa');
         sessionStorage.setItem('codSucursal', data.sucursalAtiva);
-        
+
     }
 
     validateErrors() {
@@ -491,9 +491,9 @@ export class DadosCadastraisPfComponent implements OnInit {
         } else {
             // tslint:disable-next-line:max-line-length
             let dt = this.contactForm.controls.datNascPf.value.toString();
-            
+
             if (dt.indexOf('/') == -1) {
-             dt = dt.substr(0, 2) + '/' + dt.substr(2, 2) +  '/' + dt.substr(4, 8);
+                dt = dt.substr(0, 2) + '/' + dt.substr(2, 2) + '/' + dt.substr(4, 8);
             }
 
             // tslint:disable-next-line:max-line-length
@@ -559,11 +559,11 @@ export class DadosCadastraisPfComponent implements OnInit {
         return errors;
     }
 
-    validarCaracter(event:KeyboardEvent){
+    validarCaracter(event: KeyboardEvent) {
 
         return /^[x0-9]+/g.test(event.key);
     }
- 
-    
-    
+
+
+
 }

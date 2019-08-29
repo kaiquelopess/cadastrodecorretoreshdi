@@ -16,7 +16,7 @@
         <li role="presentation" class="nav-item">
             <a href="#dados" class="nav-link active" aria-controls="dados" role="tab" data-toggle="tab">Meus dados</a>
         </li>
-        <li role="presentation" class="nav-item">
+        <li role="presentation" class="nav-item" *ngIf="validarAba">
             <a href="#acompanhamentos" class="nav-link" aria-controls="acompanhamentos" role="tab" data-toggle="tab">Acompanhamentos</a>
         </li>
     </ul>

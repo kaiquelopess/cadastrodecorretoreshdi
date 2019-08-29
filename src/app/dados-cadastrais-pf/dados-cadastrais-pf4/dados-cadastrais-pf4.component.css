@@ -60,5 +60,9 @@ table{
 
 span{
 font-size: 20px;
+}
 
+.botaoSalvar{
+    height: 50px;
+    width: 70px;
 }

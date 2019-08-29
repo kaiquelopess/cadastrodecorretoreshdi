@@ -76,3 +76,8 @@ input[type='file'] {
   pagination-controls /deep/ .ngx-pagination li.current {
       background: rgb(120, 120, 120) !important;
    }
+
+   .botaoSalvar{
+    height: 50px;
+    width: 70px;
+}

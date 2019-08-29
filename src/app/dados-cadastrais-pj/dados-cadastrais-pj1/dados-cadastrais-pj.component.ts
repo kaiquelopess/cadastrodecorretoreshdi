@@ -325,7 +325,7 @@ export class DadosCadastraisPjComponent implements OnInit {
 
         // TODO: O banco deve ser salvo no formato original, e não em inteiro
         // Funciona: codBanco = '001' | Não funciona: codBanco = 1
-        if (sessionStorage.getItem('simplesNacional') == 'null'){
+        if (sessionStorage.getItem('simplesNacional') == 'null') {
             sessionStorage.setItem('simplesNacional', 'false');
         }
 

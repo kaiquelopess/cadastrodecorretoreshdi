@@ -53,6 +53,8 @@ export class DadosCadastraisPf2Component implements OnInit {
             emailUsuario: ''
         }];
 
+
+
     // Forms
     contactForm = this.formBuilder.group({
         emailRenova: ['', [
@@ -411,14 +413,23 @@ export class DadosCadastraisPf2Component implements OnInit {
             errors += 'O campo Estado está vazio\n';
         }
 
+
+        if (this.contactForm.controls.telefoneComercial.value === '0000000000'){
+            errors += 'O telefone não existe.\n';
+        }
+
         if (this.contactForm.controls.telefoneComercial.errors) {
             if (this.contactForm.controls.telefoneComercial.errors.required) {
                 errors += 'O campo Telefone Comercial está vazio\n';
-            }
+            } 
 
             if (this.contactForm.controls.telefoneComercial.errors.minLength) {
                 errors += 'Informe um Telefone Comercial válido\n';
             }
+        }
+
+        if (this.contactForm.controls.telefoneCelular.value === '00000000000'){
+            errors += 'O telefone não existe.\n';
         }
 
         if (this.contactForm.controls.telefoneCelular.errors) {
@@ -429,6 +440,7 @@ export class DadosCadastraisPf2Component implements OnInit {
             if (this.contactForm.controls.telefoneCelular.errors.minLength) {
                 errors += 'Informe um Telefone Celular válido\n';
             }
+
         }
 
         return errors;
@@ -473,13 +485,21 @@ export class DadosCadastraisPf2Component implements OnInit {
             }
         }
 
+        if (this.corretoraForm.controls.telComercial.value === '0000000000'){
+            errors += 'O telefone não existe.\n';
+        }
+        
         if (this.corretoraForm.controls.telComercial.errors) {
             errors += 'Informe um telefone comercial válido\n';
+        } 
+
+        if (this.corretoraForm.controls.telCelular.value === '00000000000'){
+            errors += 'O telefone não existe.\n';
         }
 
         if (this.corretoraForm.controls.telCelular.errors) {
             errors += 'Informe um telefone celular válido\n';
-        }
+        } 
 
         // if (this.corretoraForm.value.dtNasc > this.maxDate) {
         //     errors += 'Informe uma Data de Nascimento válida\n';
@@ -569,4 +589,5 @@ export class DadosCadastraisPf2Component implements OnInit {
 
         return /^[a-zA-Z0-9- ]+/g.test(event.key);
     }
+
 }

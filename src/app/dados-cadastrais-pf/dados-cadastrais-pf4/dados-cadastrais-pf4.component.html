@@ -1,3 +1,28 @@
-<br/>Arquivos Permitidos: JPG, JPEG, PNG e PDF<br/>
-<app-upload></app-upload>
-<button type="button" class="btn btn-sm button custom float-right mt-4" (click)="onSubmit()">Salvar dados</button>
+<form [formGroup]="contactForm">
+    <div class="container">
+        <br />Arquivos Permitidos: JPG, JPEG, PNG e PDF<br />
+        <app-upload></app-upload>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-inline" id="ciencia" formControlName="ciencia">
+                        Ao enviar este cadastro, eu a Corretora, assumo total responsabilidade pelos dados aqui enviados
+                        como expressão da verdade
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1 offset-10">
+                <button type="button" (click)="voltar('contatos')" class="btn btn-sm button custom float-right">Voltar
+                </button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-sm button botaoSalvar custom float-right" (click)="onSubmit()">Salvar dados</button>
+            </div>
+        </div>
+    </div>
+</form>

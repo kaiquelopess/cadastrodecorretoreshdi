@@ -61,7 +61,7 @@
             <div class="col-5">
                 <div class="form-group required">
                     <label class="control-label" for="end">Endereço</label>
-                    <input id="end" type="text" class="form-control" maxlength="40" formControlName="endereco">
+                    <input id="end" type="text" class="form-control" maxlength="40" formControlName="endereco" (keypress)="validarCaracter($event)">
                 </div>
             </div>
             <div class="col-md-2">
@@ -80,7 +80,7 @@
             <div class="col-md-6">
                 <div class="form-group required">
                     <label class="control-label" for="bairro">Bairro</label>
-                    <input id="bairro" type="text" class="form-control" maxlength="50" formControlName="bairro">
+                    <input id="bairro" type="text" class="form-control" maxlength="50" formControlName="bairro" (keypress)="validarCaracter($event)">
                 </div>
             </div>
             <div class="col">
@@ -129,7 +129,7 @@
                 <div class="form-group required">
                     <label class="control-label" for="telefoneComercial">Telefone Comercial</label>
                     <input id="telefoneComercial" type="text" maxlength="15" class="form-control"
-                           formControlName="telefoneComercial" mask="(00)0000-0000">
+                        formControlName="telefoneComercial" mask="(00)0000-0000">
                     <div *ngIf="contactForm.controls.telefoneComercial.errors" class="mt-2 text-error">
                         <div *ngIf="contactForm.controls.telefoneComercial.errors.minLength">Informe um telefone
                             comercial válido.

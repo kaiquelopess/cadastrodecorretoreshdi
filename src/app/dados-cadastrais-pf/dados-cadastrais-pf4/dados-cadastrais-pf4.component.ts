@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { SalvarDadosService } from 'src/app/services/salvar-dados.service';
 import { ConsultaDadosService } from 'src/app/services/consulta-dados.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 declare function loadUploader(perfil: number, susep: string, documento: string, razao: string): any;
 declare function checkDocuments(): any;
@@ -17,7 +18,10 @@ export class DadosCadastraisPf4Component implements OnInit {
 
     constructor(
         private salvarDadosService: SalvarDadosService,
-        private router: Router) {
+        private router: Router,
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute
+        ) {
     }
 
     
@@ -29,8 +33,13 @@ export class DadosCadastraisPf4Component implements OnInit {
         nome: '',
         razaoSocial: '',
         codigoProdutor: '',
-        filial: ''
+        filial: '',
+        ciencia: false
     };
+
+    contactForm = this.formBuilder.group({
+        ciencia: [false]
+});
 
     ngOnInit() {
         const cpfcnpj = sessionStorage.getItem('cnpjCpf');
@@ -39,12 +48,22 @@ export class DadosCadastraisPf4Component implements OnInit {
         this.codOrigem = sessionStorage.getItem("codOrigem");
 
         loadUploader(302, susep, cpfcnpj, nome);
+
+        this.contactForm.setValue({
+            ciencia: false
+        });
     }
 
     onSubmit() {
         if (checkDocuments()) {
             alert('É necessário enviar todos os arquivos obrigatórios.');
             return;
+
+        }
+
+        if (!this.contactForm.value.ciencia) {
+            alert('Para dar continuidade, favor assinalar a ciência das informações');
+            return false;
         }
 
         sendDocuments();
@@ -59,13 +78,17 @@ export class DadosCadastraisPf4Component implements OnInit {
                 (data: any) => alert(data.response.dsDadosProdutor.dsDadosProdutor.ttblmensagem[0].Descricao),
                 (error: any) => console.log(error.statusText)
             );
-    
-            this.finalizar();
 
+            this.finalizar();
         }
 
     finalizar(){
         this.router.navigate(['app-ja-sou-cadastrado/' + this.codOrigem], {queryParamsHandling: 'preserve'});
+    }
+
+    voltar(idTab: any) {
+        this.router.navigate(['../dados-cadastrais-pf2'], { relativeTo: this.route });
+        /* $('.nav-tabs a[href="#' + idTab + '"]').tab('show'); */
     }
 }
 

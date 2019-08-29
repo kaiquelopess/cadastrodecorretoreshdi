@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SalvarDadosService } from 'src/app/services/salvar-dados.service';
 import { ConsultaDadosService } from 'src/app/services/consulta-dados.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 declare function loadUploader(perfil: number, susep: string, documento: string, razao: string): any;
 declare function checkDocuments(): any;
@@ -17,10 +18,16 @@ export class DadosCadastraisPj4Component implements OnInit {
 
     constructor(
         private salvarDadosService: SalvarDadosService,
-        private router: Router) {
+        private router: Router,
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute) {
     }
 
     codOrigem: string;
+
+    contactForm = this.formBuilder.group({
+        ciencia: [false]
+});
 
     ngOnInit() {
         const cpfcnpj = sessionStorage.getItem('cnpjCpf');
@@ -29,12 +36,21 @@ export class DadosCadastraisPj4Component implements OnInit {
         this.codOrigem = sessionStorage.getItem("codOrigem");
 
         loadUploader(301, susep, cpfcnpj, nome);
+
+        this.contactForm.setValue({
+            ciencia: false
+        });
     }
 
     onSubmit() {
         if (checkDocuments()) {
             alert('Todos os arquivos são obrigatórios. Favor Verificar.');
             return;
+        }
+
+        if (!this.contactForm.value.ciencia) {
+            alert('Para dar continuidade, favor assinalar a ciência das informações');
+            return false;
         }
 
         sendDocuments();
@@ -50,11 +66,18 @@ export class DadosCadastraisPj4Component implements OnInit {
                 (error: any) => console.log(error.statusText)
             );
     
+            
+
             this.finalizar();
 
         }
 
     finalizar(){
         this.router.navigate(['app-ja-sou-cadastrado/' + this.codOrigem], {queryParamsHandling: 'preserve'});
+    }
+
+    voltar(idTab: any) {
+        this.router.navigate(['../dados-cadastrais-pj2'], { relativeTo: this.route });
+        /* $('.nav-tabs a[href="#' + idTab + '"]').tab('show'); */
     }
 }
